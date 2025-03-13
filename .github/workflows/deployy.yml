@@ -15,7 +15,10 @@ jobs:
 
       - name: Set up Railway CLI
         run: |
-          curl -sSL https://railway.app/cli.sh | bash  # Installe Railway CLI
+          curl -sSL https://github.com/railwayapp/cli/releases/download/v1.3.2/railway_1.3.2_linux_amd64.tar.gz -o railway.tar.gz  # Télécharge le fichier tar.gz de la CLI Railway
+          tar -xvzf railway.tar.gz  # Décompresse le fichier
+          sudo mv railway /usr/local/bin/railway  # Déplace la CLI dans /usr/local/bin pour l'exécuter depuis n'importe où
+          rm railway.tar.gz  # Supprime le fichier tar.gz
 
       - name: Deploy to Railway
         run: |
